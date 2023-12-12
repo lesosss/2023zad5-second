@@ -29,63 +29,96 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.txtMinutes = new System.Windows.Forms.TextBox();
+            this.txtSeconds = new System.Windows.Forms.TextBox();
+            this.tmrSecundomer = new System.Windows.Forms.Timer(this.components);
+            this.btnStart = new System.Windows.Forms.Button();
+            this.txt2 = new System.Windows.Forms.TextBox();
+            this.txt1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtMinutes
             // 
-            this.textBox1.Location = new System.Drawing.Point(32, 65);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(75, 20);
-            this.textBox1.TabIndex = 0;
+            this.txtMinutes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMinutes.Location = new System.Drawing.Point(32, 65);
+            this.txtMinutes.Name = "txtMinutes";
+            this.txtMinutes.Size = new System.Drawing.Size(66, 20);
+            this.txtMinutes.TabIndex = 0;
             // 
-            // textBox2
+            // txtSeconds
             // 
-            this.textBox2.Location = new System.Drawing.Point(198, 65);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(75, 20);
-            this.textBox2.TabIndex = 1;
+            this.txtSeconds.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSeconds.Location = new System.Drawing.Point(198, 65);
+            this.txtSeconds.Name = "txtSeconds";
+            this.txtSeconds.Size = new System.Drawing.Size(66, 20);
+            this.txtSeconds.TabIndex = 1;
+            // 
+            // tmrSecundomer
+            // 
+            this.tmrSecundomer.Interval = 1000;
+            this.tmrSecundomer.Tick += new System.EventHandler(this.tmrSecundomer_Tick);
+            // 
+            // btnStart
+            // 
+            this.btnStart.Location = new System.Drawing.Point(198, 134);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(114, 23);
+            this.btnStart.TabIndex = 2;
+            this.btnStart.Text = "старт";
+            this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            // 
+            // txt2
+            // 
+            this.txt2.BackColor = System.Drawing.SystemColors.Menu;
+            this.txt2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt2.Location = new System.Drawing.Point(279, 68);
+            this.txt2.Name = "txt2";
+            this.txt2.Size = new System.Drawing.Size(67, 13);
+            this.txt2.TabIndex = 3;
+            this.txt2.Text = "сек.";
+            // 
+            // txt1
+            // 
+            this.txt1.BackColor = System.Drawing.SystemColors.Menu;
+            this.txt1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt1.Location = new System.Drawing.Point(113, 68);
+            this.txt1.Name = "txt1";
+            this.txt1.Size = new System.Drawing.Size(67, 13);
+            this.txt1.TabIndex = 4;
+            this.txt1.Text = "мин.";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(198, 134);
+            this.button1.Location = new System.Drawing.Point(32, 134);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(114, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
+            this.button1.TabIndex = 5;
+            this.button1.Text = "сброс";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox3
+            // textBox1
             // 
-            this.textBox3.BackColor = System.Drawing.Color.AliceBlue;
-            this.textBox3.Location = new System.Drawing.Point(279, 65);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(67, 20);
-            this.textBox3.TabIndex = 3;
-            // 
-            // textBox4
-            // 
-            this.textBox4.BackColor = System.Drawing.Color.AliceBlue;
-            this.textBox4.Location = new System.Drawing.Point(279, 24);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(67, 20);
-            this.textBox4.TabIndex = 4;
+            this.textBox1.Location = new System.Drawing.Point(86, 12);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(133, 20);
+            this.textBox1.TabIndex = 6;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(354, 196);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.txt1);
+            this.Controls.Add(this.txt2);
+            this.Controls.Add(this.btnStart);
+            this.Controls.Add(this.txtSeconds);
+            this.Controls.Add(this.txtMinutes);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -95,12 +128,14 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.TextBox txtMinutes;
+        private System.Windows.Forms.TextBox txtSeconds;
+        private System.Windows.Forms.Timer tmrSecundomer;
+        private System.Windows.Forms.Button btnStart;
+        private System.Windows.Forms.TextBox txt2;
+        private System.Windows.Forms.TextBox txt1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
